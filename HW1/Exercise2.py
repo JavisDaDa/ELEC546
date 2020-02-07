@@ -22,3 +22,5 @@ if __name__ == '__main__':
     threshold = np.max(np.max(subtract, axis=0)) * 0.05
     subtract[np.where(subtract < threshold)] = 0
     utils.show_image(subtract, gray=True, name='subtract', save=True)
+
+    # See Exercise.m for the implementation of applying filters

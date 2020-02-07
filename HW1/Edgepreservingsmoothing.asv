@@ -1,0 +1,2 @@
+img = imread('camera_man_noisy.png');
+imshow(img);
