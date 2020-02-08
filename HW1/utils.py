@@ -42,7 +42,8 @@ def show_image(image,gray=False, name=None, save=False):
     else:
         plt.imshow(image)
     if save is True:
-        plt.savefig(f'{name}.png')
+        imageio.imsave(f'{name}.png', image)
+        #plt.savefig(f'{name}.png')
     plt.show()
 
 
