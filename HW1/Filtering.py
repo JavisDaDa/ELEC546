@@ -22,11 +22,9 @@ if __name__ == '__main__':
     for i, matrix in enumerate(matrix):
         for j, fil in enumerate(filters):
             res = utils.matrix_filter(matrix, fil, flag=j)
-            print(f'matrix I{i+1} after filter {j+1} is \n {res}')
+            print(f'#matrix I{i+1} after filter {j+1} is \n {res}')
 
     # Apply filters
     utils.show_image(barbara_gray, gray=True)
     # cv2.filter2D()
-    '''
-    Todo
-    '''
+    # See Exercise.m for the implementation of applying filters

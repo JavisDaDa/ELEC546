@@ -19,8 +19,9 @@ if __name__ == '__main__':
     utils.plot_hist(barbara_gray_blur8, name='barbaragrayblur8hist', save=True)
     #2.5
     subtract = cv2.subtract(barbara_gray, barbara_gray_blur2)
+    utils.show_image(subtract, gray=True, name='subtract', save=True)
     threshold = np.max(np.max(subtract, axis=0)) * 0.05
     subtract[np.where(subtract < threshold)] = 0
-    utils.show_image(subtract, gray=True, name='subtract', save=True)
+    utils.show_image(subtract, gray=True, name='final', save=True)
 
-    # See Exercise.m for the implementation of applying filters
+
