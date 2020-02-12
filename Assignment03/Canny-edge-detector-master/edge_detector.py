@@ -39,10 +39,10 @@ class tracking:
 
 
 if __name__ == '__main__':
-    # from sys import argv
-    # if len(argv) < 2:
-    #     print ("Usage: python %s <image>" % argv[0])
-    #     exit()
+    from sys import argv
+    if len(argv) < 2:
+        print ("Usage: python %s <image>" % argv[0])
+        exit()
     im = array(Image.open('emilia.jpg'))
     subplot(2, 2, 1)
     imshow(im)
