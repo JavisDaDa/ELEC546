@@ -9,8 +9,9 @@ class CannyEdgeDetection(object):
 
     def gaussian(self, im):
         '''
-        :param im:
-        :return:
+        Define a gaussian filter.
+        :param im: image to be filtered
+        :return: filtered image
         '''
         image = im
         b = np.array([2, 4, 5, 4, 2, 4, 9, 12, 9, 4, 5, 12, 15, 12, 5, 4, 9, 12, 9, 4, 2, 4, 5, 4, 2]).reshape((5, 5)) / 159
@@ -23,9 +24,10 @@ class CannyEdgeDetection(object):
 
     def my_filter(self, f, im):
         '''
-        :param f:
-        :param im:
-        :return:
+        Define a filter using FFT and inverse FFT and use it to an image.
+        :param f: filter
+        :param im: image
+        :return: filtered image
         '''
         image = im
         kernel = np.zeros(image.shape)
@@ -37,9 +39,10 @@ class CannyEdgeDetection(object):
 
     def gradient(self, Dx, Dy):
         '''
-        :param Dx:
-        :param Dy:
-        :return:
+        Derive the total gradient of an image.
+        :param Dx: horizontal gradient
+        :param Dy: vertical gradient
+        :return: total gradient and degrees of each pixel
         '''
         D = np.sqrt(np.square(Dx) + np.square(Dy))
         theta = np.arctan2(Dy, Dx) * 180 / np.pi
@@ -53,9 +56,10 @@ class CannyEdgeDetection(object):
 
     def non_maximum_suppression(self, gradient, theta):
         '''
-        :param gradient:
-        :param theta:
-        :return:
+        Define non-maximum suppression.
+        :param gradient: total gradient of an image.
+        :param theta: degrees of gradients in an image.
+        :return: filtered image
         '''
         image = np.zeros(gradient.shape)
         m, n = image.shape
@@ -86,6 +90,14 @@ class CannyEdgeDetection(object):
         return image
 
     def Hysteresis(self,img, D, t_low, t_high):
+        '''
+        Define Hysteresis threshold
+        :param img: image
+        :param D: total gradient
+        :param t_low: low threshold
+        :param t_high: high threshold
+        :return: image
+        '''
         direction3 = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]]
         direction5 = [(-2, -2), (-1, -2), (0, -2), (1, -2), (2, -2),
                       (-2, -1), (2, -1),
@@ -136,6 +148,13 @@ class CannyEdgeDetection(object):
         return img
 
     def show_images(self, images, name, save=False, row=2):
+        '''
+        :param images: images to show
+        :param name: names to title
+        :param save: save or not
+        :param row: how many rows
+        :return: None
+        '''
         m = len(images)
         for i, image in enumerate(images):
             plt.subplot(row, m // row, i + 1)
@@ -146,6 +165,4 @@ class CannyEdgeDetection(object):
         if save:
             plt.savefig(f'{name[-1]}.png')
         plt.show()
-
-
 

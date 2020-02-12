@@ -1,4 +1,3 @@
-# coding:utf-8
 import cv2
 import numpy as np
 import utils
@@ -7,8 +6,12 @@ import sys
 
 
 def main(path):
-    # path = 'cameraman.tif'
-
+    '''
+    Main function
+    :param path: image path
+    :return: None
+    '''
+    # Use 'python HW3.py cameraman.tif' in terminal to run this code
     HW3 = CannyEdgeDetection()
     image = utils.load_image(path)[:, :, 0]
     # 2.a
@@ -34,7 +37,9 @@ def main(path):
     names2 = ['My canny', 'canny library', 'Comparision']
     HW3.show_images(images2, names2, save=True, row=1)
 
+
 if __name__ == '__main__':
+    # Use 'python HW3.py cameraman.tif' in terminal to run this code
     if len(sys.argv) < 2:
         print(f'Usage: python {sys.argv[0]}')
         exit()
