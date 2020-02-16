@@ -3,7 +3,7 @@ import numpy as np
 import utils
 from CannyEdgeDetection import CannyEdgeDetection
 import sys
-
+import matplotlib.pyplot as plt
 
 def main(path):
     '''
@@ -16,18 +16,38 @@ def main(path):
     image = utils.load_image(path)[:, :, 0]
     # 2.a
     fim = HW3.gaussian(image)
+    plt.imshow(fim)
+    plt.gray()
+    plt.axis('off')
+    plt.savefig(f'2a.png')
     # 2.b.1
     fx = np.array([-1, 0, 1, -2, 0, 2, -1, 0, 1]).reshape((3, -1))
     Dx = HW3.my_filter(fx, fim)
+    plt.imshow(Dx)
+    plt.gray()
+    plt.axis('off')
+    plt.savefig(f'2b1.png')
     fy = np.array([1, 2, 1, 0, 0, 0, -1, -2, -1]).reshape((3, -1))
     Dy = HW3.my_filter(fy, fim)
+    plt.imshow(Dy)
+    plt.gray()
+    plt.axis('off')
+    plt.savefig(f'2b12.png')
 
     # 2.b.2
     D, theta = HW3.gradient(Dx, Dy)
     # 2.c
     nms_image = HW3.non_maximum_suppression(D, theta)
+    plt.imshow(nms_image)
+    plt.gray()
+    plt.axis('off')
+    plt.savefig(f'2c.png')
     # 2.d
     edge = HW3.Hysteresis(nms_image, D, 30, 100)
+    plt.imshow(edge)
+    plt.gray()
+    plt.axis('off')
+    plt.savefig(f'2d.png')
     images = [image, fim, Dx, Dy, nms_image, edge]
     names = ['original', 'Noise Reduction', 'Dx', 'Dy', 'Non-maximum suppression', 'final', 'Canny edge detection']
     HW3.show_images(images, names, save=True)
@@ -40,8 +60,9 @@ def main(path):
 
 if __name__ == '__main__':
     # Use 'python HW3.py cameraman.tif' in terminal to run this code
-    if len(sys.argv) < 2:
-        print(f'Usage: python {sys.argv[0]}')
-        exit()
-    main(sys.argv[1])
+    # if len(sys.argv) < 2:
+    #     print(f'Usage: python {sys.argv[0]}')
+    #     exit()
+    # main(sys.argv[1])
+    main('cameraman.tif')
 
