@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import utils
 from CannyEdgeDetection import CannyEdgeDetection
+import sys
 import matplotlib.pyplot as plt
 
 def main(path):
@@ -10,6 +11,7 @@ def main(path):
     :param path: image path
     :return: None
     '''
+    # Use 'python HW3.py cameraman.tif' in terminal to run this code
     HW3 = CannyEdgeDetection()
     image = utils.load_image(path)[:, :, 0]
     # 2.a
@@ -57,5 +59,10 @@ def main(path):
 
 
 if __name__ == '__main__':
+    # Use 'python HW3.py cameraman.tif' in terminal to run this code
+    # if len(sys.argv) < 2:
+    #     print(f'Usage: python {sys.argv[0]}')
+    #     exit()
+    # main(sys.argv[1])
     main('cameraman.tif')
 
