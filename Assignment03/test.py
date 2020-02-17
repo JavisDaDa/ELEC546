@@ -59,12 +59,12 @@ def vis_hybrid_image(hybrid_image):
 
     return output
 def main():
-    image1 = mpimg.imread('disney.jpg')
-    image2 = mpimg.imread('star1080.jpg')
+    image1 = mpimg.imread('marilyn.bmp')
+    image2 = mpimg.imread('einstein.bmp')
     image1 = image1.astype(np.float32)/255
     image2 = image2.astype(np.float32)/255
 
-    cutoff_frequency = 7
+    cutoff_frequency = 3
     gaussian_filter = gauss2D(shape=(cutoff_frequency*4+1,cutoff_frequency*4+1), sigma = cutoff_frequency)
     low_frequencies = my_imfilter(image1, gaussian_filter)
     high_frequencies = image2 - my_imfilter(image2, gaussian_filter)
