@@ -87,8 +87,9 @@ def HarrisCornerDetection(image):
         for col in range(h):
             M_bar = np.array([[ImgX_2[row][col], ImgXY[row][col]], [ImgYX[row][col], ImgY_2[row][col]]])
             R[row][col] = np.linalg.det(M_bar) - (alpha * np.square(np.trace(M_bar)))
+    plt.imshow(R)
+    plt.show()
     return R
-
 
 #### Main Program ####
 firstimagename = cv2.imread("chessboard.jpg")

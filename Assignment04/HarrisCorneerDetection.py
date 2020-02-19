@@ -2,7 +2,8 @@ import utils
 import numpy as np
 from numpy.fft import fft2, ifft2
 import cv2
-
+from skimage.feature import peak_local_max
+import matplotlib.pyplot as plt
 class HarrisCornerDetector():
 
     def __init__(self):
@@ -22,4 +23,21 @@ class HarrisCornerDetector():
         fim = fft2(image)
         res = np.real(ifft2(kernel * fim)).astype(float)
         return res
+
+    def cornerness(self, A, B, C, epsilon=0.01):
+        detH = A * C - np.square(B)
+        traceH = A + C
+        M = detH / (epsilon + traceH)
+        return M
+
+    def NMS(self, M, distance, threshold):
+        res = peak_local_max(M, distance, threshold)
+        return res
+
+    def visulize(self, img_toshow, res, radius, color, thickness):
+        for i, j in res:
+            cv2.circle(img_toshow, (j, i), radius, color, thickness)
+        plt.imshow(img_toshow)
+        plt.show()
+        pass
 
