@@ -38,6 +38,8 @@ class HarrisCornerDetector():
         for i, j in res:
             cv2.circle(img_toshow, (j, i), radius, color, thickness)
         plt.imshow(img_toshow)
+        plt.axis('off')
+        plt.savefig('resize.png')
         plt.show()
         pass
 

@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-def main():
+def main(filepath):
     HW4 = HarrisCorneerDetection.HarrisCornerDetector()
     # 1.a
-    img = utils.convert2gray(utils.load_image('chessboard.jpg'))
-    img_toshow = utils.load_image('chessboard.jpg')
+    img = utils.convert2gray(utils.load_image(filepath))
+    img_toshow = utils.load_image(filepath)
     utils.show_image(img, gray=True)
     # 1.b
     fx = np.array([-1, 0, 1, -2, 0, 2, -1, 0, 1]).reshape((3, -1))
@@ -38,15 +38,16 @@ def main():
     epsilon = 0.01
     M = HW4.cornerness(GIx2, GIxy, GIy2, epsilon)
     # 2.a
-    threshold = 10000
-    distance = 3
+    threshold = 8000
+    distance = 10
     res = HW4.NMS(M, distance, threshold)
     # 2.b, 2.c
-    radius = 1
+    radius = 3
     color = (0, 255, 0)  # Green
     thickness = 3
     HW4.visulize(img_toshow, res, radius, color, thickness)
 
 
 if __name__ == '__main__':
-    main()
+    filepath = 'resize4.jpg'
+    main(filepath)
