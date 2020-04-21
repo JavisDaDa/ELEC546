@@ -1,0 +1,135 @@
+Q1:
+>> BagOfFeaturesSift
+siftcluster
+histogrampredict
+testResult =
+
+    0.4000    0.3000    0.3000
+    1.0000         0         0
+    0.0625    0.1250    0.8125
+1)Clearly document methods and results--follow the steps
+2)indicate points of possible improvement 
+ Problem: cannot apply to large dataset
+3)confusion matrix
+
+Q2:
+?Reduce dimensionality of the feature descriptors
+Using vocabulary tree clustering to speed up clustering algorithm
+Confusion matrix 
+Columns 1 through 11
+
+   25.0000    8.3300   16.6700    8.3300         0    8.3300    8.3300         0         0         0         0
+         0   14.2900    7.1400         0    7.1400   14.2900   14.2900         0    7.1400         0         0
+         0         0   20.0000   10.0000         0   10.0000         0   10.0000         0         0         0
+         0         0   10.0000   50.0000         0         0         0         0         0         0         0
+         0    7.1400    7.1400   14.2900   35.7100         0   14.2900    7.1400         0         0         0
+         0   10.0000         0         0         0   70.0000         0         0         0         0         0
+         0         0         0         0         0   10.0000   60.0000         0         0         0         0
+         0         0         0   10.0000         0   10.0000   10.0000   30.0000         0         0         0
+         0         0         0   20.0000         0         0         0   20.0000   20.0000         0         0
+         0         0         0         0   20.0000         0    6.6700         0         0    6.6700         0
+         0    7.1400         0   14.2900         0    7.1400    7.1400   14.2900         0         0   21.4300
+         0         0         0   14.2900         0    7.1400         0         0    7.1400         0         0
+         0         0         0   20.0000         0         0         0         0         0         0         0
+         0         0         0   10.0000   10.0000         0   40.0000   10.0000         0         0         0
+         0         0         0         0         0         0         0         0   10.0000         0         0
+         0   10.0000         0   10.0000         0         0   10.0000         0         0         0         0
+         0         0         0   20.0000         0         0   20.0000   10.0000         0         0         0
+   10.0000   10.0000         0         0         0         0         0         0         0   10.0000         0
+         0   23.0800         0         0         0   23.0800         0         0         0         0         0
+         0         0         0         0         0   20.0000         0         0         0         0         0
+         0         0   20.0000   10.0000         0   10.0000   10.0000         0   10.0000   10.0000         0
+         0         0   18.7500   18.7500         0         0    6.2500         0         0         0         0
+         0         0         0   10.0000         0         0         0         0   10.0000         0         0
+         0         0   14.2900   35.7100         0         0         0         0         0         0         0
+         0         0    6.2500         0         0         0         0   18.7500         0         0         0
+
+Columns 12 through 22
+
+         0         0         0         0         0         0         0         0         0         0    8.3300
+         0    7.1400         0         0    7.1400         0         0    7.1400         0   14.2900         0
+         0         0         0         0         0         0   10.0000         0         0   20.0000         0
+         0   10.0000         0         0         0         0         0         0         0         0         0
+         0         0         0         0         0    7.1400         0         0         0    7.1400         0
+   10.0000         0         0         0         0         0         0         0         0   10.0000         0
+         0         0         0         0   10.0000   10.0000         0         0         0   10.0000         0
+         0         0         0         0         0   10.0000         0         0         0   20.0000   10.0000
+         0         0         0         0         0   10.0000   10.0000         0         0         0   10.0000
+   13.3300         0         0    6.6700    6.6700         0         0         0    6.6700   13.3300         0
+    7.1400         0    7.1400         0         0         0         0         0    7.1400    7.1400         0
+   42.8600         0         0   14.2900    7.1400         0    7.1400         0         0         0         0
+         0   20.0000   10.0000         0         0   20.0000         0         0         0         0   10.0000
+         0         0   10.0000         0         0   10.0000         0         0         0         0   10.0000
+         0   10.0000         0   40.0000         0   10.0000         0   10.0000   20.0000         0         0
+         0         0         0         0   30.0000         0         0         0         0   10.0000         0
+         0         0         0         0         0   20.0000         0         0         0         0         0
+         0   10.0000         0   10.0000         0         0   30.0000         0         0         0   10.0000
+         0         0         0         0         0         0         0   46.1500         0         0    7.6900
+         0         0         0         0         0         0         0         0   60.0000         0         0
+         0         0         0         0   10.0000   10.0000         0         0         0   10.0000         0
+         0    6.2500         0    6.2500         0         0         0         0    6.2500         0   12.5000
+         0         0         0         0         0   10.0000   10.0000         0   10.0000         0         0
+         0    7.1400         0         0   14.2900         0    7.1400         0    7.1400         0         0
+         0   18.7500         0    6.2500         0         0         0         0         0         0   12.5000
+
+Columns 23 through 25
+
+    8.3300         0    8.3300
+         0         0         0
+   10.0000   10.0000         0
+   10.0000   10.0000   10.0000
+         0         0         0
+         0         0         0
+         0         0         0
+         0         0         0
+         0         0   10.0000
+   13.3300         0    6.6700
+         0         0         0
+         0         0         0
+   10.0000         0   10.0000
+         0         0         0
+         0         0         0
+   30.0000         0         0
+   10.0000   10.0000   10.0000
+         0         0   10.0000
+         0         0         0
+   20.0000         0         0
+         0         0         0
+    6.2500   18.7500         0
+   40.0000         0   10.0000
+    7.1400    7.1400         0
+         0         0   37.5000
+
+
+Q3:
+>> SVM
+feature
+Creating Bag-Of-Features.
+-------------------------
+* Image category 1: 024.butterfly
+* Image category 2: 051.cowboy-hat
+* Image category 3: 251.airplanes
+* Selecting feature point locations using the Grid method.
+* Extracting SURF features from the selected feature point locations.
+** The GridStep is [8 8] and the BlockWidth is [32 64 96 128].
+
+* Extracting features from 50 images in image set 1...done. Extracted 1395836 features.
+* Extracting features from 50 images in image set 2...done. Extracted 338024 features.
+* Extracting features from 57 images in image set 3...done. Extracted 230900 features.
+
+* Keeping 80 percent of the strongest features from each category.
+
+* Balancing the number of features across all image categories to improve clustering.
+** Image category 3 has the least number of strongest features: 184720.
+** Using the strongest 184720 features from each of the other image categories.
+
+* Using K-Means clustering to create a 500 word visual vocabulary.
+* Number of features          : 554160
+* Number of clusters (K)      : 500
+
+* Initializing cluster centers...100.00%.
+* Clustering...completed 21/100 iterations (~1.71 seconds/iteration)...converged in 21 iterations.
+
+* Finished creating Bag-Of-Features
+
+svmpredict>> 

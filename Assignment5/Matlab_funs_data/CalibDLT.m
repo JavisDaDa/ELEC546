@@ -26,7 +26,7 @@
 %
 % June 2008  - Original version.
 
-function P = CalibrationDLT(x, X)
+function P = CalibDLT(x, X)
 
 %% Number of Points
 noPnt = length(x);
@@ -39,5 +39,5 @@ A = [X(1,:)'            X(2,:)'             X(3,:)'             ones(noPnt,1) ..
      X(1,:)'            X(2,:)'             X(3,:)'             ones(noPnt,1) ...
      -x(2,:)'.*X(1,:)'  -x(2,:)'.*X(2,:)'   -x(2,:)'.*X(3,:)'   -x(2,:)'];
      
-[U,D,V] = svd(A);
+[~,~,V] = svd(A);
 P = reshape(V(:,12),4,3)';
