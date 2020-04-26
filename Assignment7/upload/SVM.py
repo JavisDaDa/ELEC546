@@ -6,6 +6,8 @@ from sklearn.utils import Bunch
 from skimage.io import imread
 from skimage.transform import resize
 from linear_classifier import LinearSVM
+import pandas as pd
+from collections import defaultdict
 
 # https://stackoverflow.com/questions/55535349/how-to-load-image-dataset-for-svm-image-classification-task
 def load_image_files(container_path, dimension=(64, 64)):
@@ -62,15 +64,42 @@ def train_svm(X_train, y_train, X_test, y_test):
     test_acc = np.mean(y_test == y_val_pred)
     print(f'training accuracy: {train_acc}')
     print(f'Test accuracy: {test_acc}')
+    return y_val_pred, y_test
 
 
+# def calculate_confusion(y_val_pred, y_test):
+#     y_val_pred = list(y_val_pred)
+#     y_test = list(y_test)
+#     n = len(y_test)
+#     matrix = [[0 for _ in range(3)] for _ in range(3)]
+#     dic = defaultdict(int)
+#     for i in range(n):
+#         if y_test[i] == 0:
+#             dic[0] += 1
+#         elif y_test[i] == 1:
+#             dic[1] += 1
+#         else:
+#             dic[2] += 1
+#     for i in range(n):
+#         if 0 <= i < dic[0] - 1:
+#             pass
+#         elif dic[0] <= i < dic[0] + dic[1] - 1:
+#             pass
+#         else:
+#
+#     pass
+
+    # return df
 def main():
     train_path = "D:\\Rice\\ELEC 546\\ELEC546\\Assignment7\\upload\Assignment07_data\\Assignment06_data\\Assignment06_data_reduced\\TrainingDataset"
     test_path = "D:\\Rice\\ELEC 546\\ELEC546\\Assignment7\\upload\Assignment07_data\\Assignment06_data\\Assignment06_data_reduced\\TestingDataset"
     X_train, y_train, X_test, y_test = get_train_test(train_path, test_path)
     print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)
-    train_svm(X_train, y_train, X_test, y_test)
+    y_val_pred, y_test = train_svm(X_train, y_train, X_test, y_test)
+
 
 
 if __name__ == '__main__':
     main()
+    confusion = [[0.3, 0.7, 0], [0.5, 0.4, 0.1], [0, 0, 1]]
+    print(confusion)

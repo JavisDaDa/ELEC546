@@ -6,9 +6,13 @@
       <sourceFolder url="file://$MODULE_DIR$/Assignment03/Canny-edge-detector-master" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Assignment03" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Assignment04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Assignment7/upload" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (MacbookPro) (4)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="pytest" />
